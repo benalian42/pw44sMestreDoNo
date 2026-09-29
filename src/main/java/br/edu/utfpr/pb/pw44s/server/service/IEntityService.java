@@ -10,8 +10,8 @@ import java.util.List;
  *
  * @author Aluno
  */
-public interface IEntityService {
-    List<Object> findAll();
+public interface IEntityService<T> {
+    List<T> findAll();
     Category findById(Long id);
     void deleteById(Long id);
     boolean exists(Long id);

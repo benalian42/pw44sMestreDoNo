@@ -22,6 +22,11 @@ public class CategoryServiceImpl implements ICategoryService {
     public Page<Category> findAll(Pageable pageable) {
         return categoryRepository.findAll(pageable);
     }
+    
+    @Override
+    public List<Category> findAll() {
+        return categoryRepository.findAll();
+    }
 
     @Override
     public Category findById(Long id) {
@@ -46,10 +51,5 @@ public class CategoryServiceImpl implements ICategoryService {
     @Override
     public long count() {
         return 0;
-    }
-
-    @Override
-    public List<Object> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
