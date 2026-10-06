@@ -1,4 +1,4 @@
-# Projeto de pw44s-2026
+# Projeto de pw44s-2026 || Aluno: Newton Filipe Nied  
 
 server - servidor
 
