@@ -2,19 +2,17 @@ package br.edu.utfpr.pb.pw44s.server.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Table(name = "produtos")
-@Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter @Setter
 public class Product {
 
     @Id
@@ -22,20 +20,31 @@ public class Product {
     private Long id;
 
     @NotNull
-    @Column( length = 89 )
     private String name;
 
     @NotNull
-    @Column( length = 1024 )
+    @Column(length = 1024)
     private String description;
 
     @NotNull
     private BigDecimal price;
 
-    @NotNull
     private String imageUrl;
 
     @ManyToOne
-    @JoinColumn( name = "categoryId", referencedColumnName = "id" )
-    private Long categoryId;
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category category;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

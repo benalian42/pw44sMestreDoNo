@@ -49,20 +49,24 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(SecurityConstants.HEADER_STRING);
 
-        //verifica se o token é válido e retorna o username
-        String username = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET))
-                .build()
-                .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
-                .getSubject();
+        try {
+            //verifica se o token é válido e retorna o username
+            String username = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET))
+                    .build()
+                    .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
+                    .getSubject();
 
-        if (username != null) {
-            // com posse do username é verificado se ele existe na base de dados
-            User user = (User) authService.loadUserByUsername(username);
-            //caso exista o usuário é autenticado e a requisição continua a ser executada.
-            return new UsernamePasswordAuthenticationToken(
-                    user.getUsername(),
-                    null,
-                    user.getAuthorities());
+            if (username != null) {
+                // com posse do username é verificado se ele existe na base de dados
+                User user = (User) authService.loadUserByUsername(username);
+                //caso exista o usuário é autenticado e a requisição continua a ser executada.
+                return new UsernamePasswordAuthenticationToken(
+                        user.getUsername(),
+                        null,
+                        user.getAuthorities());
+            }
+        } catch (Exception e) {
+            // token inválido ou expirado: retorna null para que o Spring Security retorne 401 - Unauthorized
         }
         // senão é retornado null, se a url que o usuário solicitou necessita de autenticação ele vai receber erro 401 - Unauthorized
         return null;

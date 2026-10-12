@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package br.edu.utfpr.pb.pw44s.server.service;
 
-/**
- *
- * @author Aluno
- */
-public interface IProductService {
-    
+import br.edu.utfpr.pb.pw44s.server.model.Product;
+
+public interface IProductService extends ICrudService<Product, Long> {
 }
