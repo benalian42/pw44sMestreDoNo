@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "itens_do_pedido")
+@Table(name = "itensDoPedido")
 @Data
 @Builder
 @NoArgsConstructor

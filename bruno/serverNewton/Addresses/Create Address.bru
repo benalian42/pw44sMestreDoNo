@@ -1,0 +1,49 @@
+meta {
+  name: Create Address
+  type: http
+  seq: 2
+  tags: [
+    addresses
+  ]
+}
+
+post {
+  url: {{baseUrl}}/addresses
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+headers {
+  content-type: application/json
+}
+
+body {
+  {
+    "street": "Rua das Flores",
+    "number": "123",
+    "complement": "Apto 42",
+    "neighborhood": "Centro",
+    "city": "São Paulo",
+    "state": "SP",
+    "addressNumber": "01001-000"
+  }
+}
+
+tests {
+  test("Status 201", function() {
+    expect(res.status).to.equal(201);
+  });
+
+  test("Deve retornar o endereço criado", function() {
+    expect(res.body.id).to.be.a('number');
+  });
+}
+
+docs {
+  Cria um endereço para o usuário autenticado.
+  O campo "addressNumber" armazena o CEP. street, number, neighborhood, city e state são obrigatórios.
+}

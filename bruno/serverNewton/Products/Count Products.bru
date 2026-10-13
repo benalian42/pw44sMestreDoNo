@@ -1,0 +1,25 @@
+meta {
+  name: Count Products
+  type: http
+  seq: 7
+  tags: [
+    crud
+    products
+  ]
+}
+
+get {
+  url: {{baseUrl}}/products/count
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Deve retornar um número", function() {
+    expect(res.body).to.be.a('number');
+  });
+}

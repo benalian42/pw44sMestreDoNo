@@ -25,7 +25,7 @@ INSERT INTO orders (id, data, user_id) VALUES (1, '2026-09-22T14:30:00', 1);
 INSERT INTO orders (id, data, user_id) VALUES (2, '2026-09-22T16:00:00', 2);
 ALTER TABLE orders ALTER COLUMN id RESTART WITH 100;
 
--- 6. Tabela de Itens do Pedido (itens_do_pedido) - sem autoincrement, PK composta
-INSERT INTO itens_do_pedido (order_id, product_id, price, quantity) VALUES (1, 1, 250.00, 1);
-INSERT INTO itens_do_pedido (order_id, product_id, price, quantity) VALUES (1, 2, 45.00, 2);
-INSERT INTO itens_do_pedido (order_id, product_id, price, quantity) VALUES (2, 3, 120.00, 1);
+-- 6. Tabela de Itens do Pedido (itensDoPedido) - sem autoincrement, PK composta
+INSERT INTO itensDoPedido (order_id, product_id, price, quantity) VALUES (1, 1, 250.00, 1);
+INSERT INTO itensDoPedido (order_id, product_id, price, quantity) VALUES (1, 2, 45.00, 2);
+INSERT INTO itensDoPedido (order_id, product_id, price, quantity) VALUES (2, 3, 120.00, 1);

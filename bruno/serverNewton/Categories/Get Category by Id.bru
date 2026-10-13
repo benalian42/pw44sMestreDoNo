@@ -1,0 +1,29 @@
+meta {
+  name: Get Category by Id
+  type: http
+  seq: 4
+  tags: [
+    crud
+    categories
+  ]
+}
+
+get {
+  url: {{baseUrl}}/categories/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: {{categoryId}}
+}
+
+tests {
+  test("Status 200 ou 204", function() {
+    expect([200, 204]).to.include(res.status);
+  });
+}
+
+docs {
+  Retorna 200 com a categoria ou 204 quando não existe.
+}

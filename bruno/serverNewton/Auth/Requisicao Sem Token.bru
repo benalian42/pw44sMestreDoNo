@@ -1,0 +1,24 @@
+meta {
+  name: Requisicao Sem Token
+  type: http
+  seq: 3
+  tags: [
+    auth
+  ]
+}
+
+get {
+  url: {{baseUrl}}/orders
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status 401", function() {
+    expect(res.status).to.equal(401);
+  });
+}
+
+docs {
+  Verifica que endpoints protegidos (/orders, /addresses) exigem o token JWT.
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Delete Product
+  type: http
+  seq: 8
+  tags: [
+    crud
+    products
+  ]
+}
+
+delete {
+  url: {{baseUrl}}/products/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: {{productId}}
+}
+
+docs {
+  Remove o produto criado em "Create Product" (variável productId), preservando os produtos do import.sql usados em Orders.
+}
+
+tests {
+  test("Status 204", function() {
+    expect(res.status).to.equal(204);
+  });
+}

@@ -1,0 +1,6 @@
+{
+  "version": "1",
+  "name": "serverNewton",
+  "type": "collection",
+  "defaultEnvironment": "local"
+}

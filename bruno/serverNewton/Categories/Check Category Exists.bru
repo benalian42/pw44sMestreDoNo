@@ -1,0 +1,29 @@
+meta {
+  name: Check Category Exists
+  type: http
+  seq: 6
+  tags: [
+    crud
+    categories
+  ]
+}
+
+get {
+  url: {{baseUrl}}/categories/exists/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: {{categoryId}}
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Deve retornar boolean", function() {
+    expect(res.body).to.be.a('boolean');
+  });
+}
