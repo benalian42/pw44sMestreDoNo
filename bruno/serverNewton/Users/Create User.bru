@@ -17,7 +17,7 @@ headers {
   content-type: application/json
 }
 
-body {
+body:json {
   {
     "displayName": "Usuário Teste",
     "username": "{{testUsername}}",
@@ -26,14 +26,14 @@ body {
 }
 
 script:pre-request {
-  bru.setVar("testUsername", "user" + Date.now());
+  //bru.setVar("testUsername", "user" + Date.now());
 }
 
 tests {
   test("Status 201", function() {
     expect(res.status).to.equal(201);
   });
-
+  
   test("Deve retornar mensagem de sucesso", function() {
     expect(res.body.message).to.equal("Usuário salvo com sucesso");
   });
