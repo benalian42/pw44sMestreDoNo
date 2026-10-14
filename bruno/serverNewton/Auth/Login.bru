@@ -1,0 +1,50 @@
+meta {
+  name: Login
+  type: http
+  seq: 1
+  tags: [
+    auth
+  ]
+}
+
+post {
+  url: {{baseUrl}}/login
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body {
+  {
+    "username": "{{testUsername}}",
+    "password": "Senha123"
+  }
+}
+
+script:post-response {
+  bru.setEnvVar("token", res.body.token);
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Deve retornar o token JWT", function() {
+    expect(res.body.token).to.be.a('string');
+  });
+
+  test("Deve retornar o usuário autenticado", function() {
+    expect(res.body.user.username).to.equal(bru.getVar("testUsername"));
+  });
+}
+
+docs {
+  Autentica o usuário e retorna {"token": "...", "user": {...}}.
+  O token é salvo automaticamente na variável de ambiente "token" e usado nos requests protegidos.
+  Fluxo: execute primeiro o request "Create User" (Users) e depois este Login com as mesmas credenciais (testUsername é compartilhada entre os requests).
+  Os usuários vindos do import.sql possuem hashes de senha fictícios, por isso não funcionam no login.
+}

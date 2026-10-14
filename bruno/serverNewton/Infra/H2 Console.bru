@@ -1,0 +1,22 @@
+meta {
+  name: H2 Console
+  type: http
+  seq: 1
+  tags: [
+    infra
+  ]
+}
+
+get {
+  url: {{baseUrl}}/h2-console
+  body: none
+  auth: none
+}
+
+docs {
+  Abre a página do console do H2 (melhor acessar pelo navegador).
+  JDBC URL: jdbc:h2:mem:testdb
+  User Name: sa
+  Password: (vazio)
+  O banco é em memória, então os dados são perdidos ao reiniciar a aplicação.
+}

@@ -1,0 +1,47 @@
+meta {
+  name: Update Product
+  type: http
+  seq: 5
+  tags: [
+    crud
+    products
+  ]
+}
+
+put {
+  url: {{baseUrl}}/products/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: {{productId}}
+}
+
+headers {
+  content-type: application/json
+}
+
+body {
+  {
+    "id": {{productId}},
+    "name": "Painel de Macramê Boho Grande",
+    "description": "Painel decorativo feito à mão com cordão de algodão cru, estilo boho.",
+    "price": 260.00,
+    "imageUrl": "https://exemplo.com/img/painel-boho.png",
+    "category": {
+      "id": {{productId}},
+      "name": "Painéis"
+    }
+  }
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+}
+
+docs {
+  O id do corpo é utilizado na atualização (o id da URL não é usado pelo controller).
+}

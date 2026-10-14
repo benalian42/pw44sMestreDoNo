@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -31,7 +31,7 @@ public class User implements UserDetails {
 
     @NotNull
     @Size(min = 4, max = 50)
-    @Column(length = 50, name = "display_name")
+    @Column(length = 50)
     private String displayName;
 
     @NotNull
@@ -45,9 +45,7 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return AuthorityUtils.createAuthorityList("ROLE_USER");
     }
-
-
-
+    
     @Override
     @Transient
     @JsonIgnore
@@ -75,5 +73,10 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+    
+    @Override
+    public String getUsername() { return username; }
 
+    @Override
+    public String getPassword() { return password; }
 }

@@ -1,0 +1,32 @@
+meta {
+  name: List Products Paginated
+  type: http
+  seq: 3
+  tags: [
+    crud
+    products
+  ]
+}
+
+get {
+  url: {{baseUrl}}/products/page?page=0&size=10&order=name&asc=true
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 0
+  size: 10
+  order: name
+  asc: true
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Deve retornar uma página", function() {
+    expect(res.body.content).to.be.an('array');
+  });
+}

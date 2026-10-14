@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "pedidos")
+@Table(name = "orders")
 @Data
 @Builder
 @NoArgsConstructor

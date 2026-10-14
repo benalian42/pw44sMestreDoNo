@@ -1,0 +1,40 @@
+meta {
+  name: Update Category
+  type: http
+  seq: 5
+  tags: [
+    crud
+    categories
+  ]
+}
+
+put {
+  url: {{baseUrl}}/categories/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: {{categoryId}}
+}
+
+headers {
+  content-type: application/json
+}
+
+body {
+  {
+    "id": {{categoryId}},
+    "name": "Painéis Atualizado"
+  }
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+}
+
+docs {
+  O id do corpo é utilizado na atualização (o id da URL não é usado pelo controller).
+}

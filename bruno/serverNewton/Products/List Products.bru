@@ -1,0 +1,25 @@
+meta {
+  name: List Products
+  type: http
+  seq: 2
+  tags: [
+    crud
+    products
+  ]
+}
+
+get {
+  url: {{baseUrl}}/products
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Deve retornar uma lista", function() {
+    expect(res.body).to.be.an('array');
+  });
+}

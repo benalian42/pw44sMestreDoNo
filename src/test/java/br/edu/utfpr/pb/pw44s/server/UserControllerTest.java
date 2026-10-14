@@ -73,6 +73,17 @@ public class UserControllerTest {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
     }
 
+    @Test
+    public void postUser_whenUserHasUsernameWithLessThanRequired_receiveBadRequest() {
+        User user = createValidUser();
+        user.setUsername("abc");
+
+        ResponseEntity<Object> response =
+                this.restTemplate.postForEntity(API_USER, user, Object.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    }
+
 
 
     private User createValidUser() {
