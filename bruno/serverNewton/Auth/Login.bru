@@ -17,7 +17,7 @@ headers {
   content-type: application/json
 }
 
-body {
+body:json {
   {
     "username": "{{testUsername}}",
     "password": "Senha123"
@@ -32,11 +32,11 @@ tests {
   test("Status 200", function() {
     expect(res.status).to.equal(200);
   });
-
+  
   test("Deve retornar o token JWT", function() {
     expect(res.body.token).to.be.a('string');
   });
-
+  
   test("Deve retornar o usuário autenticado", function() {
     expect(res.body.user.username).to.equal(bru.getVar("testUsername"));
   });
