@@ -1,0 +1,30 @@
+meta {
+  name: Delete Category
+  type: http
+  seq: 8
+  tags: [
+    crud
+    categories
+  ]
+}
+
+delete {
+  url: {{baseUrl}}/categories/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: {{categoryId}}
+}
+
+docs {
+  Remove a categoria criada em "Create Category" (variável categoryId).
+  Não use ids do import.sql: categorias com produtos vinculados falham com 500 (violação de FK).
+}
+
+tests {
+  test("Status 204", function() {
+    expect(res.status).to.equal(204);
+  });
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Check Product Exists
+  type: http
+  seq: 6
+  tags: [
+    crud
+    products
+  ]
+}
+
+get {
+  url: {{baseUrl}}/products/exists/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: {{productId}}
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Deve retornar boolean", function() {
+    expect(res.body).to.be.a('boolean');
+  });
+}

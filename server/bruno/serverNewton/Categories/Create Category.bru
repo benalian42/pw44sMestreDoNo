@@ -1,0 +1,43 @@
+meta {
+  name: Create Category
+  type: http
+  seq: 1
+  tags: [
+    crud
+    categories
+  ]
+}
+
+post {
+  url: {{baseUrl}}/categories
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body {
+  {
+    "name": "Painéis"
+  }
+}
+
+script:post-response {
+  bru.setVar("categoryId", res.body.id);
+}
+
+tests {
+  test("Status 201", function() {
+    expect(res.status).to.equal(201);
+  });
+
+  test("Deve retornar o id gerado", function() {
+    expect(res.body.id).to.be.a('number');
+  });
+}
+
+docs {
+  name: 2 a 50 caracteres.
+}

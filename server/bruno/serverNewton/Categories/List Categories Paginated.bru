@@ -1,0 +1,37 @@
+meta {
+  name: List Categories Paginated
+  type: http
+  seq: 3
+  tags: [
+    crud
+    categories
+  ]
+}
+
+get {
+  url: {{baseUrl}}/categories/page?page=0&size=10&order=name&asc=true
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 0
+  size: 10
+  order: name
+  asc: true
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Deve retornar uma página", function() {
+    expect(res.body.content).to.be.an('array');
+  });
+}
+
+docs {
+  Parâmetros: page, size, order (campo) e asc (true/false).
+  order e asc são opcionais.
+}

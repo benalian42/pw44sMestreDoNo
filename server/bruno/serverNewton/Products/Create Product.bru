@@ -1,0 +1,50 @@
+meta {
+  name: Create Product
+  type: http
+  seq: 1
+  tags: [
+    crud
+    products
+  ]
+}
+
+post {
+  url: {{baseUrl}}/products
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body {
+  {
+    "name": "Painel de Macramê Boho Grande",
+    "description": "Painel decorativo feito à mão com cordão de algodão cru, estilo boho.",
+    "price": 250.00,
+    "imageUrl": "https://exemplo.com/img/painel-boho.png",
+    "category": {
+      "id": {{productId}},
+      "name": "Painéis"
+    }
+  }
+}
+
+script:post-response {
+  bru.setVar("productId", res.body.id);
+}
+
+tests {
+  test("Status 201", function() {
+    expect(res.status).to.equal(201);
+  });
+
+  test("Deve retornar o id gerado", function() {
+    expect(res.body.id).to.be.a('number');
+  });
+}
+
+docs {
+  name, description e price são obrigatórios. "category" é opcional (informe o id de uma categoria existente).
+}

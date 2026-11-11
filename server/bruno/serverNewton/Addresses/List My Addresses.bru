@@ -1,0 +1,32 @@
+meta {
+  name: List My Addresses
+  type: http
+  seq: 1
+  tags: [
+    addresses
+  ]
+}
+
+get {
+  url: {{baseUrl}}/addresses
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Deve retornar uma lista", function() {
+    expect(res.body).to.be.an('array');
+  });
+}
+
+docs {
+  Lista os endereços do usuário autenticado (token salvo na variável "token" após o Login).
+}

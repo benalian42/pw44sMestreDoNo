@@ -1,0 +1,35 @@
+meta {
+  name: Login Invalido
+  type: http
+  seq: 2
+  tags: [
+    auth
+  ]
+}
+
+post {
+  url: {{baseUrl}}/login
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body {
+  {
+    "username": "{{testUsername}}",
+    "password": "SenhaErrada"
+  }
+}
+
+tests {
+  test("Status 401", function() {
+    expect(res.status).to.equal(401);
+  });
+}
+
+docs {
+  Testa o tratamento de credenciais inválidas (EntryPointUnauthorizedHandler).
+}

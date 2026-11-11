@@ -1,0 +1,25 @@
+meta {
+  name: Get Product by Id
+  type: http
+  seq: 4
+  tags: [
+    crud
+    products
+  ]
+}
+
+get {
+  url: {{baseUrl}}/products/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: {{productId}}
+}
+
+tests {
+  test("Status 200 ou 204", function() {
+    expect([200, 204]).to.include(res.status);
+  });
+}
