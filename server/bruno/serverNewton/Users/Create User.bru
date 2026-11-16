@@ -1,0 +1,49 @@
+meta {
+  name: Create User
+  type: http
+  seq: 1
+  tags: [
+    users
+  ]
+}
+
+post {
+  url: {{baseUrl}}/users
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "displayName": "Usuário Teste",
+    "username": "{{testUsername}}",
+    "password": "Senha123"
+  }
+}
+
+script:pre-request {
+  //bru.setVar("testUsername", "user" + Date.now());
+}
+
+tests {
+  test("Status 201", function() {
+    expect(res.status).to.equal(201);
+  });
+  
+  test("Deve retornar mensagem de sucesso", function() {
+    expect(res.body.message).to.equal("Usuário salvo com sucesso");
+  });
+}
+
+docs {
+  Cria um novo usuário (rota pública).
+  Validações: displayName e username (4-50 chars), password com no mínimo 6 caracteres
+  contendo letra minúscula, maiúscula e dígito.
+  O username é gerado a cada execução (variável testUsername), pois a API não bloqueia username duplicado
+  e duplicatas fazem o login retornar 500.
+  Execute este request antes do "Login" (Auth) para ter credenciais válidas.
+}

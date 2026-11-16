@@ -1,0 +1,33 @@
+meta {
+  name: Get Order by Id
+  type: http
+  seq: 3
+  tags: [
+    orders
+  ]
+}
+
+get {
+  url: {{baseUrl}}/orders/:id
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+params:path {
+  id: {{orderId}}
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.status).to.equal(200);
+  });
+}
+
+docs {
+  Retorna o pedido criado em "Create Order" (variável orderId).
+  Retorna 204 se o pedido não existir ou pertencer a outro usuário (ex.: ids 1 e 2 do import.sql).
+}
