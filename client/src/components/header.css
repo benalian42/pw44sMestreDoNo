@@ -1,0 +1,66 @@
+.header .navbar {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--cor-primaria);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-fonte);
+  font-family: var(--fonte-primaria);
+}
+
+.nav-link {
+  color: var(--cor-fonte);
+}
+
+.nav-link:hover {
+  color: var(--cor-destaque);
+  background-color: var(--cor-fonte);
+  
+}
+
+.search-bar .form-control {
+  border: 1px solid var(--cor-primaria);
+}
+
+.search-bar .btn {
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: 1px solid var(--cor-secundaria);
+}
+
+.search-bar .btn:hover {
+  background-color: var(--cor-destaque);
+  border: 1px solid var(--cor-destaque);
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  padding: 0.3rem;
+}
+
+@media (min-width: 1024px) 
+{
+  .logo-image {
+    width: auto;
+    height: 3rem;
+    vertical-align: middle;
+    position: relative;
+  }
+}
+
+@media (max-width: 484px) 
+{
+  .logo-image {
+    width: auto;
+    height: 3rem;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  a 
+  {
+    align-self: center;
+  }
+}

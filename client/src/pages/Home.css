@@ -1,0 +1,65 @@
+main{
+  min-height: 100vh;
+  position: relative;                                                                                                                                                                  
+  display: flex;                                                                                                                                                                       
+  flex-direction: column;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; /* 2. Estica para preencher o pai posicionado */
+  width: auto; /* Garante que top/bottom/left/right funcionem como pretendido */
+  height: auto;
+  background-image: url(/src/assets/img/fundo1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  opacity: 0.25;
+  filter: blur(7px);
+  z-index: -1;
+}
+
+.home-container {
+  padding: 2rem;
+  
+}
+
+.home-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--cor-fonte);
+  font-size: 2.5rem;
+  font-family: var(--fonte-primaria);
+}
+
+.category-menu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.category-button {
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.category-button:hover {
+  background-color: var(--cor-destaque);
+}
+
+.category-button.active {
+  background-color: var(--cor-destaque);
+  border: 1px solid var(--cor-secundaria);
+}

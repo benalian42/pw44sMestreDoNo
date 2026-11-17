@@ -1,0 +1,50 @@
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.thumbnail.active {
+  border-color: var(--cor-destaque);
+  border-width: 2px;
+}
+
+.product-info h1 {
+  color: var(--cor-fonte);
+  font-family: var(--fonte-primaria);
+}
+
+.product-info .price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--cor-destaque);
+}
+
+.product-info .description {
+  font-size: 1.1rem;
+  color: var(--cor-fonte);
+  line-height: 1.6;
+}
+
+.add-to-cart-button.btn-primary {
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+}
+
+.add-to-cart-button.btn-primary:hover {
+  background-color: var(--cor-destaque);
+  border-color: var(--cor-destaque);
+}
+
+.freight-calculator h3 {
+  font-family: var(--fonte-primaria);
+  color: var(--cor-fonte);
+}
+
+.with-discount {
+  text-decoration: line-through;
+}
+
+.discount {
+  color: green;
+}

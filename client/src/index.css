@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+:root {
+  --fonte-primaria: 'Cinzel', serif;
+  --cor-primaria: #e9b48c;
+  --cor-fundo: #fdf5e6; 
+  --cor-secundaria: #4d79da;
+  --cor-destaque: #e67e22;
+  --cor-fonte: #3c3f2c;
+  --cor-verde:#829d7a;
+}
+
+.disabled
+{
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-primaria), system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--cor-fonte);
+}

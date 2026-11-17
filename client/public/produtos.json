@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Painel de Macramê 'Sonho Boho'",
+    "description": "Painel de parede em macramê feito à mão, perfeito para adicionar um toque boêmio à decoração da sua casa. Feito com cordão de algodão natural.",
+    "price": 75.00,
+    "image": "src/assets/img/painel1.jpg",
+    "category": "Decoração de Parede"
+  },
+  {
+    "id": 2,
+    "name": "Suporte de Plantas em Macramê 'Abraço Verde'",
+    "description": "Elegante suporte de plantas em macramê, ideal para exibir suas plantas favoritas. Adequado para vários tamanhos de vasos.",
+    "price": 45.00,
+    "image": "src/assets/img/prateleira.jpg",
+    "category": "Suportes de Plantas"
+  },
+  {
+    "id": 3,
+    "name": "Chaveiro de Macramê 'Nó Oceano'",
+    "description": "Chaveiro de macramê estiloso, um acessório perfeito para suas chaves ou bolsa. Disponível em várias cores.",
+    "price": 15.00,
+    "image": "src/assets/img/chaveiro_.jpg",
+    "category": "Acessórios"
+  },
+  {
+    "id": 4,
+    "name": "Descanso de Copos em Macramê (Conjunto de 4) 'Charme Rústico'",
+    "description": "Conjunto de quatro descansos de copos em macramê feitos à mão, protegendo suas superfícies com elegância rústica.",
+    "price": 30.00,
+    "image": "src/assets/img/descanso.jpg",
+    "category": "Utilidades Domésticas"
+  },
+  {
+    "id": 5,
+    "name": "Prateleira de Macramê 'Oásis Flutuante'",
+    "description": "Bela prateleira flutuante em macramê, combinando funcionalidade com design artístico. Perfeita para pequenos itens decorativos.",
+    "price": 90.00,
+    "image": "src/assets/img/prateleira.jpg",
+    "category": "Decoração de Parede"
+  }
+]
