@@ -8,6 +8,11 @@
   --cor-destaque: #e67e22;
   --cor-fonte: #3c3f2c;
   --cor-verde:#829d7a;
+
+  /*reutilizando cores definidas para o prime*/
+  --primary-color: var(--cor-primaria);
+  --primary-color-text: #3c3f2c; /* Cor do texto em cima de botões primários */
+  --primary-hover-color: var(--cor-destaque);
 }
 
 .disabled

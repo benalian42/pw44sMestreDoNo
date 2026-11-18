@@ -23,7 +23,7 @@ interface UserStored {
 }
 
 function Register() {
-  const [formData, setFormData] = useState({
+  const [FormData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     password: '',
@@ -43,7 +43,7 @@ function Register() {
 
   const validate = () => {
     let newErrors = {};
-    if (!formData.name) {
+    if (!FormData.name) {
       newErrors.name = 'Nome é obrigatório';
     }
     if (!formData.email) {
@@ -92,9 +92,9 @@ function Register() {
   };
 
   return (
-    <div className="form-container">
-      <h2>Cadastro</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="flex justify-content-center align-items-center min-h-screen surface-ground p-3">
+      <div className="surface-card p-5 shadow-2 border-round w-full md:w-5">
+        <h2 className="text-center text-900 mb-4">Cadastro</h2>
         <div className="form-group">
           <label htmlFor="name">Nome:</label>
           <input
